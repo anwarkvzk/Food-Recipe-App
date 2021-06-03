@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Hero from './Hero';
+import SpecialDishes from './SpeacialDishes';
 
 function Menus(){
     let [menu, setMenu]  = useState([])
@@ -30,6 +31,7 @@ function Menus(){
     return(
         <div>
             <Hero />
+            <SpecialDishes />
        </div>
     );
 }
