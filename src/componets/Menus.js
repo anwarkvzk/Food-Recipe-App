@@ -12,7 +12,7 @@ function Menus(){
         let data  = await response.json()
         setMenu(data.meals)
     }
-
+        console.log("All menu",menu);
     useEffect(()=>{
         getAllTheMenus()
         
@@ -31,7 +31,7 @@ function Menus(){
     return(
         <div>
             <Hero />
-            <SpecialDishes />
+            <SpecialDishes specialMenu={menu} />
        </div>
     );
 }

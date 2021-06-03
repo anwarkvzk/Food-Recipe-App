@@ -1,103 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-  
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
 }
 
-body{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
 }
 
-p{
-    font-size: 16px;
-    line-height: 24px;
+p {
+  font-size: 16px;
+  line-height: 24px;
 }
 
 //Website font Sizes
-h1{
-    font-size: 38px;
-    margin-bottom: 18px;  
-    color: rgb(32, 14, 14);
+h1 {
+  font-size: 38px;
+  margin-bottom: 18px;
+  color: rgb(32, 14, 14);
 }
-h2{
-    font-size: 32px;
-    margin-bottom: 18px;
-    color: rgb(32, 14, 14);
-}
-
-ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+h2 {
+  font-size: 32px;
+  margin-bottom: 18px;
+  color: rgb(32, 14, 14);
 }
 
-.text-center{
-    text-align: center;
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.container{
-    max-width: 100%;
-    margin: auto;
+.text-center {
+  text-align: center;
 }
-section{
-    margin: 80px 0;
-}
-.flex{
-    display: flex;
 
-&.flex-wrap{
+.container {
+  max-width: 100%;
+  margin: auto;
+}
+section {
+  margin: 80px 0;
+}
+.flex {
+  display: flex;
+
+  &.flex-wrap {
     flex-wrap: wrap;
-}
-&.flex-center{
+  }
+  &.flex-center {
     align-items: center;
     justify-content: center;
+  }
 }
+.gap {
+  gap: 25px;
 }
-.gap{
-    gap: 25px;
-}
-.br{
-    border-radius: 10px;
+.br {
+  border-radius: 10px;
 }
 
-.img{
-    max-width: 100%;
-    object-fit: cover;
+.img {
+  max-width: 100%;
+  object-fit: cover;
 }
 
 //Hero CSS
-.hero{
-    position: relative;
-    height: 65vh;
+.hero {
+  position: relative;
+  height: 65vh;
+  width: 100%;
+  overflow: hidden;
+  &-img {
     width: 100%;
-    overflow: hidden;
- &-img{
-     width: 100%;
-     object-fit: cover;
- }  
+    object-fit: cover;
+  }
 
-&-content{
+  &-content {
     max-width: 400px;
-   position: absolute;
-   right: 100px;
-   top: 50%;
-   transform: translateY(-50%); 
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
 
- 
-   h2,p{
-       text-shadow: 4px 4px 7px #4e4e4e;    
-   }
-}
+    h2,
+    p {
+      text-shadow: 4px 4px 7px #4e4e4e;
+    }
+  }
 }
 
 //Special Dishes Css
-.special-dishes{
+.special-dishes {
+  &-content {
     max-width: 680px;
     margin: auto;
-    &-content{
-
-    }
+  }
+  &-list{
+      
+  }
 }
