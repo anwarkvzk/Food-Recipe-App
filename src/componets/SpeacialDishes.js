@@ -1,14 +1,12 @@
 function SpecialDishes(props) {
     console.log("props :",props.specialMenu);
+    // let maxSpecialDishes = 10
     let specialMenus = props.specialMenu.map((menuItem)=>{
         return(
-            <ul>
-                <li>
-                    <img src={menuItem.strMealThumb} />
-                    <h4>{menuItem.strMeal}</h4>
-                    
-                    </li>
-            </ul>
+          <li>
+          <img className="img" src={menuItem.strMealThumb}  />
+          <h4>{menuItem.strMeal}</h4>
+          </li>
         )
     })
   return (
@@ -23,7 +21,9 @@ function SpecialDishes(props) {
           </p>
         </div>
         <div className="special-dishes-list">
-               {specialMenus}
+               <ul className="flex flex-wrap gap-30">
+                 {specialMenus}
+               </ul>
         </div>
       </div>
     </section>

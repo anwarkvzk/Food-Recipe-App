@@ -2,8 +2,9 @@
 * {
   margin: 0;
   padding: 0;
-
   box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 body {
@@ -43,7 +44,7 @@ ul {
   margin: auto;
 }
 section {
-  margin: 80px 0;
+  margin: 100px 0;
 }
 .flex {
   display: flex;
@@ -56,16 +57,18 @@ section {
     justify-content: center;
   }
 }
-.gap {
-  gap: 25px;
+.gap-30 {
+  gap: 30px;
 }
-.br {
+.br-10 {
   border-radius: 10px;
 }
 
 .img {
   max-width: 100%;
   object-fit: cover;
+  border-radius: 10px;
+
 }
 
 //Hero CSS
@@ -100,6 +103,10 @@ section {
     margin: auto;
   }
   &-list{
-      
+    // margin-top: 80px;
+      li {
+        width: 22%;
+       
+      }
   }
 }
