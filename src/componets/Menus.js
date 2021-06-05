@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import FilteredDishes from './FilteredDishes';
 import Hero from './Hero';
 import SpecialDishes from './SpeacialDishes';
 
@@ -7,15 +8,25 @@ function Menus(){
     
     // get all the menus
     async function getAllTheMenus(){
-        const API_URL = "https://www.themealdb.com/api/json/v1/1/search.php?f=a"
+        const API_URL = "https://www.themealdb.com/api/json/v1/1/search.php?f=c"
         let response = await fetch(API_URL)
         let data  = await response.json()
         setMenu(data.meals)
     }
+
+
+    async function getAllTheCategories(){
+        const API_URL = "https://www.themealdb.com/api/json/v1/1/categories.php"
+        let response = await fetch(API_URL)
+        let categoryData = await response.json()
+        console.log("Category Data:",categoryData.categories);
+    }
+
+
         console.log("All menu",menu);
     useEffect(()=>{
-        getAllTheMenus()
-        
+        getAllTheMenus();
+        getAllTheCategories();
     },[]);
 
     // console.log("The Menus are",menu);
@@ -32,6 +43,8 @@ function Menus(){
         <div>
             <Hero />
             <SpecialDishes specialMenu={menu} />
+            <FilteredDishes />
+
        </div>
     );
 }

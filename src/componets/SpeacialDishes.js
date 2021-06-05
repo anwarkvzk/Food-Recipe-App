@@ -1,13 +1,16 @@
 function SpecialDishes(props) {
-    console.log("props :",props.specialMenu);
-    // let maxSpecialDishes = 10
-    let specialMenus = props.specialMenu.map((menuItem)=>{
+      
+    let maxSpecialDishes = 12;
+    let specialMenus = props.specialMenu.map((menuItem, index)=>{
+      if(index < maxSpecialDishes){
         return(
           <li>
           <img className="img" src={menuItem.strMealThumb}  />
-          <h4>{menuItem.strMeal}</h4>
+          <h5>{menuItem.strMeal}</h5>
           </li>
         )
+      }
+        
     })
   return (
     <section className="special-dishes">
