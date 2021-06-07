@@ -5,6 +5,7 @@ import SpecialDishes from './SpeacialDishes';
 
 function Menus(){
     let [menu, setMenu]  = useState([])
+    let [menuCategory, setMenuCategory] = useState ([])
     
     // get all the menus
     async function getAllTheMenus(){
@@ -19,11 +20,11 @@ function Menus(){
         const API_URL = "https://www.themealdb.com/api/json/v1/1/categories.php"
         let response = await fetch(API_URL)
         let categoryData = await response.json()
-        console.log("Category Data:",categoryData.categories);
+        setMenuCategory(categoryData.categories)
+        
     }
-
-
-        console.log("All menu",menu);
+  
+        
     useEffect(()=>{
         getAllTheMenus();
         getAllTheCategories();
@@ -43,7 +44,7 @@ function Menus(){
         <div>
             <Hero />
             <SpecialDishes specialMenu={menu} />
-            <FilteredDishes />
+            <FilteredDishes allMenuCategories={menuCategory}/>
 
        </div>
     );

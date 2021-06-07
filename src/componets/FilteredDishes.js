@@ -1,6 +1,17 @@
 import React from "react";
 
-function FilteredDishes() {
+function FilteredDishes(props) {
+    // Lets Show all The Categories
+  console.log("Props Data:",props.allMenuCategories);
+
+
+ let allCategories = props.allMenuCategories.map((item)=>{
+    return(
+      <li>{item.strCategory}</li>
+    )
+  })
+
+
   return (
     <div className="filtred-dishes">
       <div className="container">
@@ -12,6 +23,11 @@ function FilteredDishes() {
             perferendis quasi, eaque laborum facilis corrupti eius suscipit
             officia aspernatur deserunt, iusto repellendus autem!
           </p>
+        </div>
+        <div className="filterd-dishes">
+          <ul>
+              {allCategories}
+          </ul>
         </div>
       </div>
     </div>
