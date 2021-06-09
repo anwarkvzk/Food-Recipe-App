@@ -1,39 +1,46 @@
 import React, { useState } from "react";
 
 function FilteredDishes(props) {
-  console.log("All Menus:",props.allMenus);
+  console.log("All Menus:", props.allMenus);
 
-    let [allMenus , setAllMenus]  = useState(props.allMenus)
-    let [filteredDishes , setFilteredDishes] = useState([])
+  let [allMenus, setAllMenus] = useState(props.allMenus);
+  let [filteredDishes, setFilteredDishes] = useState([]);
+ 
 
-    // Lets Show all The Categories
-  console.log("Props Data:",props.allMenuCategories);
+  // Lets Show all The Categories
+  console.log("Props Data:", props.allMenuCategories);
 
   // Show Dishes onClick
-  function showFilterdDishesHandler(category){
-   let filteredDishesAre = allMenus.filter((item)=>{
-      return item.strCategory ===  category
-    }).map((item)=>{
-      return(
-        <li>
-          <img src={item.strMealThumb} alt="" />
-          <h2>{item.strMeal}</h2>
-        </li>
-      )
-    })
+  function showFilterdDishesHandler(category) {
+    let filteredDishesAre = allMenus
+      .filter((item) => {
+        return item.strCategory === category;
+      })
+      .map((item) => {
+        return (
+          <li>
+            <img src={item.strMealThumb} className="br-10" alt="" />
+            <h2>{item.strMeal}</h2>
+          </li>
+        );
+      });
 
-    setFilteredDishes(filteredDishesAre)
-
+    setFilteredDishes(filteredDishesAre);
   }
 
+  let allCategories = props.allMenuCategories.map((item) => {
+    return (
+      <li
+        onClick={() => {
+          showFilterdDishesHandler(item.strCategory);
+        }}
+      >
+        {item.strCategory}
+      </li>
+    );
+  });
 
- let allCategories = props.allMenuCategories.map((item)=>{
-    return(
-      <li onClick={()=>{showFilterdDishesHandler(item.strCategory)}}>{item.strCategory}</li>
-    )
-  })
-
-
+  // Rendering
   return (
     <div className="filtred-dishes">
       <div className="container">
@@ -47,15 +54,11 @@ function FilteredDishes(props) {
           </p>
         </div>
         <div className="filterd-dishes">
-          <ul>
-              {allCategories}
-          </ul>
+          <ul>{allCategories}</ul>
         </div>
 
         <div className="filterd-dishes-results">
-          <ul className="flex flex-wrap gap-30">
-          {filteredDishes}
-          </ul>
+          <ul className="flex flex-wrap gap-30">{filteredDishes}</ul>
         </div>
       </div>
     </div>

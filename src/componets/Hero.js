@@ -4,7 +4,7 @@ function Hero(){
             <img className="hero-img" src="https://images.unsplash.com/photo-1490818387583-1baba5e638af"  alt="" />
             <div className="hero-content">
                 <h1>Its all about good food &  taste</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, dicta? Et facilis architecto, libero commodi delectus deleniti nesciunt!</p>
+                <p>This foods all good food.this is very healthy food .fully cooked expericed sheff</p>
             </div>
         </div>
     )
