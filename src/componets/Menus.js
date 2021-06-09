@@ -44,7 +44,7 @@ function Menus(){
         <div>
             <Hero />
             <SpecialDishes specialMenu={menu} />
-            <FilteredDishes allMenuCategories={menuCategory}/>
+            <FilteredDishes allMenuCategories={menuCategory} allMenus = {menu}/>
 
        </div>
     );

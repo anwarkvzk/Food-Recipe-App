@@ -1,13 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 function FilteredDishes(props) {
+  console.log("All Menus:",props.allMenus);
+
+    let [allMenus , setAllMenus]  = useState(props.allMenus)
+    let [filteredDishes , setFilteredDishes] = useState([])
+
     // Lets Show all The Categories
   console.log("Props Data:",props.allMenuCategories);
+
+  // Show Dishes onClick
+  function showFilterdDishesHandler(category){
+   let filteredDishesAre = allMenus.filter((item)=>{
+      return item.strCategory ===  category
+    }).map((item)=>{
+      return(
+        <li>
+          <img src={item.strMealThumb} alt="" />
+          <h2>{item.strMeal}</h2>
+        </li>
+      )
+    })
+
+    setFilteredDishes(filteredDishesAre)
+
+  }
 
 
  let allCategories = props.allMenuCategories.map((item)=>{
     return(
-      <li>{item.strCategory}</li>
+      <li onClick={()=>{showFilterdDishesHandler(item.strCategory)}}>{item.strCategory}</li>
     )
   })
 
@@ -27,6 +49,12 @@ function FilteredDishes(props) {
         <div className="filterd-dishes">
           <ul>
               {allCategories}
+          </ul>
+        </div>
+
+        <div className="filterd-dishes-results">
+          <ul className="flex flex-wrap gap-30">
+          {filteredDishes}
           </ul>
         </div>
       </div>
