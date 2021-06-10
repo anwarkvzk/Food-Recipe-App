@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FilteredDishes from "./FilteredDishes";
 import Hero from "./Hero";
+import Loader from "./Loader";
 import SpecialDishes from "./SpeacialDishes";
 
 function Menus() {
@@ -45,10 +46,7 @@ function Menus() {
       {!loading ? (
         <SpecialDishes specialMenu={menu} />
       ) : (
-        <div className="loader">
-            
-          <h1>Loading...</h1>
-        </div>
+       <Loader />
       )}
       {!loading ? (
         <FilteredDishes allMenuCategories={menuCategory} allMenus={menu} />

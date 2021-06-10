@@ -5,13 +5,14 @@ function FilteredDishes(props) {
 
   let [allMenus, setAllMenus] = useState(props.allMenus);
   let [filteredDishes, setFilteredDishes] = useState([]);
- 
+  let [activeDish, setActiveDish] = useState ()
 
   // Lets Show all The Categories
   console.log("Props Data:", props.allMenuCategories);
 
   // Show Dishes onClick
   function showFilterdDishesHandler(category) {
+    setActiveDish(category)
     let filteredDishesAre = allMenus
       .filter((item) => {
         return item.strCategory === category;
@@ -30,7 +31,7 @@ function FilteredDishes(props) {
 
   let allCategories = props.allMenuCategories.map((item) => {
     return (
-      <li
+      <li className={item.strCategory == activeDish ? "active" : ""}
         onClick={() => {
           showFilterdDishesHandler(item.strCategory);
         }}
