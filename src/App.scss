@@ -83,7 +83,7 @@ section {
   border-radius: 10px;
 }
 
-.img {
+img {
   max-width: 100%;
   object-fit: cover;
   border-radius: 10px;
@@ -164,7 +164,18 @@ section {
   }
 }
 
+.filterd-dishes-results{
+ 
+  // margin-top: 60px;
+  h5{
+    margin-top: 18px;
+  }
+    li {
+      width: 22%;
+      
 
+    }
+}
 
 //Loader
 
@@ -182,3 +193,5 @@ section {
       color: white;
   }
 }
+
+

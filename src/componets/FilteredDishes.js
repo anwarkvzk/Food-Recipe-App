@@ -18,9 +18,9 @@ function FilteredDishes(props) {
       })
       .map((item) => {
         return (
-          <li>
+          <li >
             <img src={item.strMealThumb} className="br-10" alt="" />
-            <h2>{item.strMeal}</h2>
+            <h5>{item.strMeal}</h5>
           </li>
         );
       });
@@ -42,7 +42,7 @@ function FilteredDishes(props) {
 
   // Rendering
   return (
-    <div className="filtred-dishes">
+    <div className="Filtred-dishes">
       <div className="container">
         <div className="text-center">
           <h2>Choose Your dishes</h2>
@@ -54,7 +54,8 @@ function FilteredDishes(props) {
           </p>
         </div>
         <div className="filterd-dishes">
-          <ul>{allCategories}</ul>
+          
+          <ul className="flex flex-wrap flex-center">{allCategories}</ul>
         </div>
 
         <div className="filterd-dishes-results">
