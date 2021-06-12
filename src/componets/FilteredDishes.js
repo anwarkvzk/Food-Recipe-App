@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 
 function FilteredDishes(props) {
-  console.log("All Menus:", props.allMenus);
+  console.log("Single Dish Props :",props.singleDish)
 
   let [allMenus, setAllMenus] = useState(props.allMenus);
   let [filteredDishes, setFilteredDishes] = useState([]);
-  let [activeDish, setActiveDish] = useState();
+  let [activeDish, setActiveDish] = useState("Beef");
+
+  //Lets Show Only Single Dishes
+  let singleDishItems =  props.singleDish.map((item)=>{
+    return (
+      <li>
+        <img src={item.strMealThumb} className="br-10" alt="" />
+        <h5>{item.strMeal}</h5>
+      </li>
+    );
+  })
 
   console.log("Props Data:", props.allMenuCategories);
 
@@ -61,6 +71,7 @@ function FilteredDishes(props) {
 
         <div className="filterd-dishes-results">
           <ul className="flex flex-wrap gap-30">
+            {singleDishItems}
             {filteredDishes.length != 0 ? filteredDishes : 
             <div className="alert">
                 <h3>Sorry Item Not Found</h3>

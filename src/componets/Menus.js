@@ -8,6 +8,7 @@ function Menus() {
   let [menu, setMenu] = useState([]);
   let [menuCategory, setMenuCategory] = useState([]);
   let [loading, setLoading] = useState(true);
+  let [singleDish, setSingleDish] = useState([]);
 
   // get all the menus
   async function getAllTheMenus() {
@@ -18,6 +19,8 @@ function Menus() {
     setLoading(false);
   }
 
+
+  //Get all The Categories
   async function getAllTheCategories() {
     const API_URL = "https://www.themealdb.com/api/json/v1/1/categories.php";
     let response = await fetch(API_URL);
@@ -25,9 +28,20 @@ function Menus() {
     setMenuCategory(categoryData.categories);
   }
 
+
+  async function getOnlyOneDish() {
+    const API_URL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef";
+    let response = await fetch(API_URL);
+    let singleDishData = await response.json();
+    setSingleDish(singleDishData.meals)
+   
+  }
+  
+
   useEffect(() => {
     getAllTheMenus();
     getAllTheCategories();
+    getOnlyOneDish();
   }, []);
 
   // console.log("The Menus are",menu);
@@ -49,7 +63,11 @@ function Menus() {
        <Loader />
       )}
       {!loading ? (
-        <FilteredDishes allMenuCategories={menuCategory} allMenus={menu} />
+        <FilteredDishes
+         allMenuCategories={menuCategory} 
+         allMenus={menu} 
+         singleDish={singleDish}
+         />
       ) : null}
     </div>
   );
