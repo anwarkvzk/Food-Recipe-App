@@ -67,6 +67,7 @@ function Menus() {
          allMenuCategories={menuCategory} 
          allMenus={menu} 
          singleDish={singleDish}
+         setSingleDish={setSingleDish}
          />
       ) : null}
     </div>
