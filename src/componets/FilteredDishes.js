@@ -2,30 +2,40 @@ import React, { useState } from "react";
 import Pagination from "./Pagination";
 
 function FilteredDishes(props) {
-  console.log("Single Dish Props :",props.singleDish)
+  console.log("Single Dish Props :", props.singleDish);
 
   let [allMenus, setAllMenus] = useState(props.allMenus);
   let [filteredDishes, setFilteredDishes] = useState([]);
   let [activeDish, setActiveDish] = useState("Beef");
-  let [currentPage, setCurrentPage] = useState(1)
-  let [itemPerPage, setItemPage] = useState(4)
-  
+  let [currentPage, setCurrentPage] = useState(1);
+  let [itemPerPage, setItemPage] = useState(4);
+
+  let indexOfLastDish = currentPage * itemPerPage;
+    //1 x 4  =4
+    //2 x 4  =8
+    //3 x 4  =12
+  let indexOfFirstDish = indexOfLastDish - itemPerPage;
+    //4 - 4 = 0
+    //8 - 4 = 4
+    //12 - 4 = 8
+
+    let showTheseDishesNow = filteredDishes.slice(indexOfFirstDish,indexOfLastDish)
 
   //Lets Show Only Single Dishes
-  let singleDishItems =  props.singleDish.map((item)=>{
+  let singleDishItems = props.singleDish.map((item) => {
     return (
       <li>
         <img src={item.strMealThumb} className="br-10" alt="" />
         <h5>{item.strMeal}</h5>
       </li>
     );
-  })
+  });
 
   console.log("Props Data:", props.allMenuCategories);
 
   // Show Dishes onClick
   function showFilterdDishesHandler(category) {
-    props.setSingleDish([])
+    props.setSingleDish([]);
     setActiveDish(category);
     let filteredDishesAre = allMenus
       .filter((item) => {
@@ -77,17 +87,20 @@ function FilteredDishes(props) {
         <div className="filterd-dishes-results">
           <ul className="flex flex-wrap gap-30">
             {singleDishItems}
-            {filteredDishes.length !=  singleDishItems.length!= 0 ? filteredDishes : 
-            <div className="alert">
+            {(filteredDishes.length != singleDishItems.length) != 0 ? (
+             showTheseDishesNow
+            ) : (
+              <div className="alert">
                 <h3>Sorry Item Not Found</h3>
                 <h4>Please Choose Another Dishes</h4>
-              </div>}
-            
-            </ul>
+              </div>
+            )}
+          </ul>
         </div>
-        <Pagination filteredDishes = {filteredDishes}>
-        
-        </Pagination>
+        <Pagination
+         filteredDishes={filteredDishes}
+          itemPerPage ={itemPerPage}
+        ></Pagination>
       </div>
     </div>
   );

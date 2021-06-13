@@ -2,7 +2,7 @@ import React from "react";
 
 function Pagination(props) {
   let numberOfPages = [];
-  for (let i = 1; i <= props.filteredDishes.length; i++) {
+  for (let i = 1; i <= Math.ceil(props.filteredDishes.length/props.itemPerPage); i++) {
     numberOfPages.push(i);
   }
   let pages = numberOfPages.map((item) => {
