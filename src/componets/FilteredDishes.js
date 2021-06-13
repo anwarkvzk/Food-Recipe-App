@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Pagination from "./Pagination";
 
 function FilteredDishes(props) {
   console.log("Single Dish Props :",props.singleDish)
@@ -6,6 +7,8 @@ function FilteredDishes(props) {
   let [allMenus, setAllMenus] = useState(props.allMenus);
   let [filteredDishes, setFilteredDishes] = useState([]);
   let [activeDish, setActiveDish] = useState("Beef");
+  let [currentPage, setCurrentPage] = useState(1)
+  let [itemPerPage, setItemPage] = useState(4)
   
 
   //Lets Show Only Single Dishes
@@ -82,6 +85,9 @@ function FilteredDishes(props) {
             
             </ul>
         </div>
+        <Pagination filteredDishes = {filteredDishes}>
+        
+        </Pagination>
       </div>
     </div>
   );
