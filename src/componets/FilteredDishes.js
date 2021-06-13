@@ -100,6 +100,8 @@ function FilteredDishes(props) {
         <Pagination
          filteredDishes={filteredDishes}
           itemPerPage ={itemPerPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         ></Pagination>
       </div>
     </div>

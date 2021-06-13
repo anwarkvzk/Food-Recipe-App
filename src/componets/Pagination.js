@@ -2,11 +2,25 @@ import React from "react";
 
 function Pagination(props) {
   let numberOfPages = [];
-  for (let i = 1; i <= Math.ceil(props.filteredDishes.length/props.itemPerPage); i++) {
+  for (
+    let i = 1;
+    i <= Math.ceil(props.filteredDishes.length / props.itemPerPage);
+    i++
+  ) {
     numberOfPages.push(i);
   }
-  let pages = numberOfPages.map((item) => {
-    return <li>{item}</li>;
+
+  function showNextDishesHandler(event) {
+    let currentPage = event.target.id
+    props.setCurrentPage(currentPage)
+  }
+
+  let pages = numberOfPages.map((pageNumber) => {
+    return (
+      <li id={pageNumber} onClick={showNextDishesHandler}>
+        {pageNumber}
+      </li>
+    );
   });
   return (
     <section>
