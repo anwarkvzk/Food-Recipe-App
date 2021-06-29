@@ -1,19 +1,20 @@
+import React, { useState } from "react";
+import CardDish from "./CardDish";
+import Popup from "./Popup";
+
 function SpecialDishes(props) {
-      
-    let maxSpecialDishes = 12;
-    let specialMenus = props.specialMenu.map((menuItem, index)=>{
-      if(index < maxSpecialDishes){
-        return(
-          <li>
-          <img className="img" src={menuItem.strMealThumb}  />
-          <h5>{menuItem.strMeal}</h5>
-          </li>
-        )
-      }
-        
-    })
+  let [showPopUp, setShowPopup] = useState(false);
+
+  let maxSpecialDishes = 12;
+  let specialMenus = props.specialMenu.map((menuItem, index) => {
+    if (index < maxSpecialDishes) {
+      return <CardDish menuItem={menuItem} />;
+    }
+  });
   return (
+   
     <section className="special-dishes">
+      {showPopUp && <Popup />}
       <div className="container">
         <div className="special-dishes-content text-center">
           <h2>Our Special Dishes</h2>
@@ -24,9 +25,7 @@ function SpecialDishes(props) {
           </p>
         </div>
         <div className="special-dishes-list">
-               <ul className="flex flex-wrap gap-30">
-                 {specialMenus}
-               </ul>
+          <ul className="flex flex-wrap gap-30">{specialMenus}</ul>
         </div>
       </div>
     </section>

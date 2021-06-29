@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CardDish from "./CardDish";
 import Pagination from "./Pagination";
 
 function FilteredDishes(props) {
@@ -11,24 +12,30 @@ function FilteredDishes(props) {
   let [itemPerPage, setItemPage] = useState(4);
 
   let indexOfLastDish = currentPage * itemPerPage;
-    //1 x 4  =4
-    //2 x 4  =8
-    //3 x 4  =12
+  //1 x 4  =4
+  //2 x 4  =8
+  //3 x 4  =12
   let indexOfFirstDish = indexOfLastDish - itemPerPage;
-    //4 - 4 = 0
-    //8 - 4 = 4
-    //12 - 4 = 8
+  //4 - 4 = 0
+  //8 - 4 = 4
+  //12 - 4 = 8
 
-    let showTheseDishesNow = filteredDishes.slice(indexOfFirstDish,indexOfLastDish)
+  let showTheseDishesNow = filteredDishes.slice(
+    indexOfFirstDish,
+    indexOfLastDish
+  );
 
   //Lets Show Only Single Dishes
-  let singleDishItems = props.singleDish.map((item) => {
-    return (
-      <li>
-        <img src={item.strMealThumb} className="br-10" alt="" />
-        <h5>{item.strMeal}</h5>
-      </li>
-    );
+  let maxItem = 4;
+  let singleDishItems = props.singleDish.map((item, index) => {
+    if (index < maxItem) {
+      return (
+        <li>
+          <img src={item.strMealThumb} className="br-10" alt="" />
+          <h5>{item.strMeal}</h5>
+        </li>
+      );
+    }
   });
 
   console.log("Props Data:", props.allMenuCategories);
@@ -41,12 +48,13 @@ function FilteredDishes(props) {
       .filter((item) => {
         return item.strCategory === category;
       })
-      .map((item) => {
+      .map((menuItem) => {
         return (
-          <li>
-            <img src={item.strMealThumb} className="br-10" alt="" />
-            <h5>{item.strMeal}</h5>
-          </li>
+          <CardDish menuItem={menuItem} />
+          // <li>
+          //   <img src={item.strMealThumb} className="br-10" alt="" />
+          //   <h5>{item.strMeal}</h5>
+          // </li>
         );
       });
 
@@ -87,8 +95,8 @@ function FilteredDishes(props) {
         <div className="filterd-dishes-results">
           <ul className="flex flex-wrap gap-30">
             {singleDishItems}
-            {(filteredDishes.length != singleDishItems.length) != 0 ? (
-             showTheseDishesNow
+            {singleDishItems != 0 || filteredDishes.length != 0 ? (
+              showTheseDishesNow
             ) : (
               <div className="alert">
                 <h3>Sorry Item Not Found</h3>
@@ -98,8 +106,8 @@ function FilteredDishes(props) {
           </ul>
         </div>
         <Pagination
-         filteredDishes={filteredDishes}
-          itemPerPage ={itemPerPage}
+          filteredDishes={filteredDishes}
+          itemPerPage={itemPerPage}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         ></Pagination>
