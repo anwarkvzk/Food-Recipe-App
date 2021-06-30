@@ -5,16 +5,24 @@ import Popup from "./Popup";
 function SpecialDishes(props) {
   let [showPopUp, setShowPopup] = useState(false);
 
-  let maxSpecialDishes = 12;
+  //Lets show the Popup
+  function showPopupHandler(){
+    setShowPopup(true)
+   }
+
+  let maxSpecialDishes = 8;
   let specialMenus = props.specialMenu.map((menuItem, index) => {
     if (index < maxSpecialDishes) {
-      return <CardDish menuItem={menuItem} />;
+      return <CardDish 
+      menuItem={menuItem}
+      showPopup={showPopupHandler}
+      />;
     }
   });
   return (
    
     <section className="special-dishes">
-      {showPopUp && <Popup />}
+      {showPopUp && <Popup ></Popup>}
       <div className="container">
         <div className="special-dishes-content text-center">
           <h2>Our Special Dishes</h2>
