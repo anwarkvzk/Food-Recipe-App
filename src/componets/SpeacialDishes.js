@@ -10,6 +10,13 @@ function SpecialDishes(props) {
     setShowPopup(true)
    }
 
+   //Lets Close the Popup Window
+
+   function closePopupHandler(){
+    setShowPopup(false)
+  }
+
+
   let maxSpecialDishes = 8;
   let specialMenus = props.specialMenu.map((menuItem, index) => {
     if (index < maxSpecialDishes) {
@@ -22,7 +29,7 @@ function SpecialDishes(props) {
   return (
    
     <section className="special-dishes">
-      {showPopUp && <Popup ></Popup>}
+      {showPopUp && <Popup closePopup={closePopupHandler}></Popup>}
       <div className="container">
         <div className="special-dishes-content text-center">
           <h2>Our Special Dishes</h2>
