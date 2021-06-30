@@ -4,32 +4,32 @@ import Popup from "./Popup";
 
 function SpecialDishes(props) {
   let [showPopUp, setShowPopup] = useState(false);
+  let [currentDish, setCurrentDish] = useState("");
 
   //Lets show the Popup
-  function showPopupHandler(){
-    setShowPopup(true)
-   }
-
-   //Lets Close the Popup Window
-
-   function closePopupHandler(){
-    setShowPopup(false)
+  function showPopupHandler(dishName) {
+    setShowPopup(true);
+    setCurrentDish(dishName);
   }
 
+  //Lets Close the Popup Window
+
+  function closePopupHandler() {
+    setShowPopup(false);
+  }
 
   let maxSpecialDishes = 8;
   let specialMenus = props.specialMenu.map((menuItem, index) => {
     if (index < maxSpecialDishes) {
-      return <CardDish 
-      menuItem={menuItem}
-      showPopup={showPopupHandler}
-      />;
+      return <CardDish menuItem={menuItem} showPopup={showPopupHandler} />;
     }
   });
   return (
-   
     <section className="special-dishes">
-      {showPopUp && <Popup closePopup={closePopupHandler}></Popup>}
+      {showPopUp && 
+        <Popup closePopup={closePopupHandler} currentDish={currentDish}></Popup>
+      }
+
       <div className="container">
         <div className="special-dishes-content text-center">
           <h2>Our Special Dishes</h2>

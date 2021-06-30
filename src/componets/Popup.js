@@ -1,12 +1,12 @@
 import React from "react";
 
-function Popup({closePopup}) {
+function Popup({closePopup,currentDish}) {
 
 
   return (
     <div className="popup">
       <div className="popup-content">
-        <h2>Menu Description Show Here</h2>
+        <h2>{currentDish}</h2>
         <button>Order Now</button>
         <h5 className="popup-close" onClick={closePopup}>Close</h5>
       </div>
