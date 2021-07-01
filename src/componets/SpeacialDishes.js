@@ -19,16 +19,20 @@ function SpecialDishes(props) {
   }
 
   let maxSpecialDishes = 8;
-  let specialMenus = props.specialMenu.map((menuItem, index) => {
+  let specialMenus = props.specialMenu.map((menuItem, index) =>{
     if (index < maxSpecialDishes) {
       return <CardDish menuItem={menuItem} showPopup={showPopupHandler} />;
     }
   });
   return (
     <section className="special-dishes">
-      {showPopUp && 
-        <Popup closePopup={closePopupHandler} currentDish={currentDish}></Popup>
-      }
+      {showPopUp && (
+        <Popup
+          closePopup={closePopupHandler}
+          currentDish={currentDish}
+          allDishes={props.specialMenu}
+        ></Popup>
+      )}
 
       <div className="container">
         <div className="special-dishes-content text-center">
