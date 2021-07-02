@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CardDish from "./CardDish";
 import Popup from "./Popup";
+//step 4
+import {AllMenuContext} from "./AllMenuContext"
 
 function SpecialDishes(props) {
   let [showPopUp, setShowPopup] = useState(false);
   let [currentDish, setCurrentDish] = useState("");
 
+  const allMenus = useContext(AllMenuContext)
+  console.log("Global State Menus are here now:",allMenus)
   //Lets show the Popup
   function showPopupHandler(dishName) {
     setShowPopup(true);
@@ -19,7 +23,7 @@ function SpecialDishes(props) {
   }
 
   let maxSpecialDishes = 8;
-  let specialMenus = props.specialMenu.map((menuItem, index) =>{
+  let specialMenus = allMenus.map((menuItem, index) =>{
     if (index < maxSpecialDishes) {
       return <CardDish menuItem={menuItem} showPopup={showPopupHandler} />;
     }
@@ -30,7 +34,7 @@ function SpecialDishes(props) {
         <Popup
           closePopup={closePopupHandler}
           currentDish={currentDish}
-          allDishes={props.specialMenu}
+          
         ></Popup>
       )}
 

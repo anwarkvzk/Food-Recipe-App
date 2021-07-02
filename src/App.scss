@@ -64,6 +64,25 @@ ul {
 section {
   margin: 100px 0;
 }
+a{ 
+  text-decoration: none;
+  color: black;
+}
+
+// Gloabal CTA btns
+.cta-btn {
+  background-color: #ffb902;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 12px 22px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 20px 0;
+}
+// Global flex classes
 .flex {
   display: flex;
 
@@ -73,6 +92,9 @@ section {
   &.flex-center {
     align-items: center;
     justify-content: center;
+  }
+  &.flex-between {
+    justify-content: space-between;
   }
 }
 .gap-30 {
@@ -86,6 +108,48 @@ img {
   max-width: 100%;
   object-fit: cover;
   border-radius: 10px;
+}
+
+// Header CSS
+header {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  padding: 15px 50px;
+  background-color: rgba(73,69,48,0.5);
+
+  .logo {
+    background-color: #ffb902;
+    color: rgb(34, 33, 33);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    border: 5px solid rgba(255,255,255, 0.5);
+  }
+
+  nav {
+    li{
+      margin: 0 10px;
+
+      &:hover {
+        a{
+          color: #ff4848;
+        }
+      }
+    }
+    a {
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 12px;
+      transition: color ease 0.3s;
+    }
+  }
 }
 
 //Hero CSS
@@ -128,6 +192,7 @@ img {
     }
     li {
       width: 22%;
+      
     }
   }
 }

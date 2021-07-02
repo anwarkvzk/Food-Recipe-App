@@ -1,24 +1,14 @@
 import React, { useState, useEffect } from "react";
 import FilteredDishes from "./FilteredDishes";
+import Header from "./Header";
 import Hero from "./Hero";
-import Loader from "./Loader";
+
 import SpecialDishes from "./SpeacialDishes";
+import {AllMenus} from "./AllMenuContext";
 
 function Menus() {
-  let [menu, setMenu] = useState([]);
   let [menuCategory, setMenuCategory] = useState([]);
-  let [loading, setLoading] = useState(true);
   let [singleDish, setSingleDish] = useState([]);
-
-  // get all the menus
-  async function getAllTheMenus() {
-    const API_URL = "https://www.themealdb.com/api/json/v1/1/search.php?f=c";
-    let response = await fetch(API_URL);
-    let data = await response.json();
-    setMenu(data.meals);
-    setLoading(false);
-  }
-
 
   //Get all The Categories
   async function getAllTheCategories() {
@@ -28,18 +18,14 @@ function Menus() {
     setMenuCategory(categoryData.categories);
   }
 
-
   async function getOnlyOneDish() {
     const API_URL = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef";
     let response = await fetch(API_URL);
     let singleDishData = await response.json();
-    setSingleDish(singleDishData.meals)
-   
+    setSingleDish(singleDishData.meals);
   }
-  
 
   useEffect(() => {
-    getAllTheMenus();
     getAllTheCategories();
     getOnlyOneDish();
   }, []);
@@ -56,20 +42,17 @@ function Menus() {
 
   return (
     <div>
+      <Header />
       <Hero />
-      {!loading ? (
-        <SpecialDishes specialMenu={menu} />
-      ) : (
-       <Loader />
-      )}
-      {!loading ? (
+      <AllMenus>
+        <SpecialDishes />
+
         <FilteredDishes
-         allMenuCategories={menuCategory} 
-         allMenus={menu} 
-         singleDish={singleDish}
-         setSingleDish={setSingleDish}
-         />
-      ) : null}
+          allMenuCategories={menuCategory}
+          singleDish={singleDish}
+          setSingleDish={setSingleDish}
+        />
+      </AllMenus>
     </div>
   );
 }
