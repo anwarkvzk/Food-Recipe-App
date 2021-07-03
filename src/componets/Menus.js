@@ -13,7 +13,6 @@ function Menus() {
       <Hero />
       <AllMenus>
         <SpecialDishes />
-
         <FilteredDishes />
       </AllMenus>
     </div>

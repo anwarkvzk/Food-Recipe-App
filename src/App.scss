@@ -64,7 +64,7 @@ ul {
 section {
   margin: 100px 0;
 }
-a{ 
+a {
   text-decoration: none;
   color: black;
 }
@@ -76,7 +76,7 @@ a{
   outline: none;
   font-size: 16px;
   padding: 12px 22px;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -116,7 +116,7 @@ header {
   z-index: 1;
   width: 100%;
   padding: 15px 50px;
-  background-color: rgba(73,69,48,0.5);
+  background-color: rgba(73, 69, 48, 0.5);
 
   .logo {
     background-color: #ffb902;
@@ -129,15 +129,15 @@ header {
     justify-content: center;
     text-align: center;
     font-weight: bold;
-    border: 5px solid rgba(255,255,255, 0.5);
+    border: 5px solid rgba(255, 255, 255, 0.5);
   }
 
   nav {
-    li{
+    li {
       margin: 0 10px;
 
       &:hover {
-        a{
+        a {
           color: #ff4848;
         }
       }
@@ -192,7 +192,6 @@ header {
     }
     li {
       width: 22%;
-      
     }
   }
 }
@@ -305,10 +304,11 @@ header {
   align-items: center;
   justify-content: center;
 
-  h2,p {
+  h2,
+  p {
     color: white;
   }
-  p{
+  p {
     font-size: 12px;
     margin-bottom: 6px;
     height: 150px;
@@ -359,7 +359,7 @@ header {
     margin-bottom: 32px;
     position: relative;
 
-    &-category{
+    &-category {
       background: white;
       color: black;
       margin: 0;
@@ -368,7 +368,6 @@ header {
       position: absolute;
       bottom: 25px;
       left: 25px;
-
     }
     img {
       width: 100%;
@@ -377,9 +376,9 @@ header {
   }
 }
 
-.dish-ingredients{
+.dish-ingredients {
   margin-bottom: 22px;
-  li{
+  li {
     background: white;
     padding: 8px 12px;
     border-radius: 32px;
@@ -389,7 +388,7 @@ header {
 }
 
 //Add To Cart Style
-.add-to-cart-wrapper{
+.add-to-cart-wrapper {
   width: 100px;
   position: fixed;
   top: 40%;
@@ -400,9 +399,9 @@ header {
   padding: 5px;
   border-radius: 5px;
   text-align: center;
-  
-  .add-to-cart-item{
-    img{
+
+  .add-to-cart-item {
+    img {
       width: 100%;
       height: 90px;
       object-fit: cover;
