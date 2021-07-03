@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import CardDish from "./CardDish";
 import Popup from "./Popup";
-//step 4
+import AddToCart from "./AddToCart"
+
 import {AllMenuContext} from "./AllMenuContext"
 
 function SpecialDishes(props) {
@@ -39,6 +40,9 @@ function SpecialDishes(props) {
       )}
 
       <div className="container">
+
+          <AddToCart />
+
         <div className="special-dishes-content text-center">
           <h2>Our Special Dishes</h2>
           <p>

@@ -387,3 +387,25 @@ header {
     margin-right: 12px;
   }
 }
+
+//Add To Cart Style
+.add-to-cart-wrapper{
+  width: 100px;
+  position: fixed;
+  top: 40%;
+  right: 0;
+  display: flex;
+  background-color: white;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  
+  .add-to-cart-item{
+    img{
+      width: 100%;
+      height: 90px;
+      object-fit: cover;
+    }
+  }
+}
