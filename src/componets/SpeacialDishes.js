@@ -8,7 +8,7 @@ import { AllMenuContext } from "./AllMenuContext";
 function SpecialDishes(props) {
   let [showPopUp, setShowPopup] = useState(false);
   let [currentDish, setCurrentDish] = useState("");
-  let [addToCartItem, setAddToCartItem ]=useState([{}])
+  let [addToCartItem, setAddToCartItem ]=useState([])
 
   console.log("this is addToCart Item")
   const allMenus = useContext(AllMenuContext);
@@ -29,6 +29,7 @@ function SpecialDishes(props) {
   function addToCartHandler(AddToCartImg,AddToCartTitle) {
     setAddToCartItem(
       [
+        ...addToCartItem,
         {
           "img" : AddToCartImg,
           "title":AddToCartTitle
